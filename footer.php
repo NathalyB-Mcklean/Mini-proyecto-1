@@ -1,6 +1,6 @@
 <?php
 /**
- * Footer del proyecto - Mini Proyecto #2
+ * Footer del proyecto - Mini Proyecto #1
  * Universidad Tecnológica de Panamá
  */
 
@@ -35,6 +35,6 @@ $fechaActual = "$dia de $mes de $anio";
     </p>
     
     <p style="margin-top: 10px; color: #999; font-size: 0.85em;">
-        Mini Proyecto #2 - Sentencias de Control y Clases | © <?php echo date('Y'); ?>
+        Mini Proyecto #1 - Sentencias de Control y Clases | © <?php echo date('Y'); ?>
     </p>
 </footer>
