@@ -446,7 +446,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             type="number" 
                             id="numero<?php echo $i; ?>" 
                             name="numero<?php echo $i; ?>" 
-                            step="0.01"
                             placeholder="Ej: <?php echo rand(10, 100); ?>"
                             value="<?php echo isset($_POST["numero{$i}"]) ? htmlspecialchars($_POST["numero{$i}"]) : ''; ?>"
                             required
