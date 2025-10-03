@@ -26,8 +26,10 @@ $fechaActual = "$dia de $mes de $anio";
     
     <div class="students">
         <p style="margin-top: 15px;">👥 <strong>Integrantes del Grupo:</strong></p>
-        <p>Estudiante #1: [Nombre Completo] - [correo@utp.ac.pa]</p>
-        <p>Estudiante #2: [Nombre Completo] - [correo@utp.ac.pa]</p>
+        <p>Estudiante #1: Abrego, Abdiel - abdiel.abrego1@utp.ac.pa</p>
+        <p>Estudiante #2: Bonilla, Nathaly - nathaly.bonilla1@utp.ac.pa</p>
+        <p>Estudiante #3: Felix, Eimy - eimy.felix@utp.ac.pa</p>
+        <p>Estudiante #4: Green, Amanda - amanda.green@utp.ac.pa</p>
     </div>
     
     <p style="margin-top: 15px; color: #999; font-size: 0.9em;">

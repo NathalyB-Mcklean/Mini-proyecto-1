@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suma de Pares e Impares</title>
+    <title>Pares e Impares - Problema #4</title>
     <style>
         * {
             margin: 0;
@@ -22,7 +22,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             width: 100%;
             background: white;
             border-radius: 20px;
@@ -51,6 +51,16 @@
             padding: 40px;
         }
 
+        .description {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+            color: #555;
+            line-height: 1.8;
+        }
+
         .results-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -62,9 +72,9 @@
             padding: 30px;
             border-radius: 15px;
             text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .result-card::before {
@@ -230,198 +240,106 @@
             color: #333;
         }
 
-        .formula-box {
-            background: #f0f4f8;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-family: 'Courier New', monospace;
-            text-align: center;
-            border-left: 4px solid #667eea;
-        }
-
-        .percentage-bar {
+        .back-btn {
             width: 100%;
-            height: 30px;
-            background: #e0e0e0;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-top: 15px;
-            display: flex;
+            padding: 15px;
+            margin-top: 30px;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
         }
 
-        .percentage-fill-pares {
-            background: linear-gradient(90deg, #00bcd4, #4dd0e1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 0.9em;
-        }
-
-        .percentage-fill-impares {
-            background: linear-gradient(90deg, #e91e63, #f06292);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 0.9em;
+        .back-btn:hover {
+            background: #5a6268;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🔢 Suma de Números Pares e Impares</h1>
-            <p>Análisis de números del 1 al 200</p>
+            <h1>Problema #4</h1>
+            <p>Suma de Números Pares e Impares</p>
         </div>
 
         <div class="content">
+            <div class="description">
+                Se desea calcular independientemente la suma de los números pares e impares comprendidos entre 1 y 200.
+            </div>
+
             <?php
-            // Clase para cálculos de números (PSR-1: StudlyCaps)
-            class NumberCalculator {
-                private $rangoInicio;
-                private $rangoFin;
+            // Inicializar variables
+            $sumaPares = 0;
+            $sumaImpares = 0;
+            $cantidadPares = 0;
+            $cantidadImpares = 0;
 
-                public function __construct($inicio = 1, $fin = 200) {
-                    $this->rangoInicio = $inicio;
-                    $this->rangoFin = $fin;
-                }
-
-                // Método estático para verificar si es par (operador ternario)
-                public static function esPar($numero) {
-                    return $numero % 2 === 0 ? true : false;
-                }
-
-                // Método para calcular suma de pares usando for
-                public function calcularSumaPares() {
-                    $suma = 0;
-                    $cantidad = 0;
-                    
-                    for ($i = $this->rangoInicio; $i <= $this->rangoFin; $i++) {
-                        if (self::esPar($i)) {
-                            $suma += $i;
-                            $cantidad++;
-                        }
-                    }
-                    
-                    return ['suma' => $suma, 'cantidad' => $cantidad];
-                }
-
-                // Método para calcular suma de impares usando while
-                public function calcularSumaImpares() {
-                    $suma = 0;
-                    $cantidad = 0;
-                    $i = $this->rangoInicio;
-                    
-                    while ($i <= $this->rangoFin) {
-                        if (!self::esPar($i)) {
-                            $suma += $i;
-                            $cantidad++;
-                        }
-                        $i++;
-                    }
-                    
-                    return ['suma' => $suma, 'cantidad' => $cantidad];
-                }
-
-                // Método estático para obtener primeros N números de un tipo
-                public static function obtenerPrimerosNumeros($cantidad, $esPar, $inicio, $fin) {
-                    $numeros = [];
-                    $contador = 0;
-                    
-                    for ($i = $inicio; $i <= $fin && $contador < $cantidad; $i++) {
-                        // Usando operador ternario para la condición
-                        $cumpleCondicion = $esPar ? self::esPar($i) : !self::esPar($i);
-                        
-                        if ($cumpleCondicion) {
-                            $numeros[] = $i;
-                            $contador++;
-                        }
-                    }
-                    
-                    return $numeros;
-                }
-
-                // Método para calcular estadísticas completas
-                public function calcularEstadisticas() {
-                    $pares = $this->calcularSumaPares();
-                    $impares = $this->calcularSumaImpares();
-                    $total = $pares['suma'] + $impares['suma'];
-                    
-                    return [
-                        'pares' => $pares,
-                        'impares' => $impares,
-                        'total' => $total,
-                        'porcentajePares' => ($pares['suma'] / $total) * 100,
-                        'porcentajeImpares' => ($impares['suma'] / $total) * 100
-                    ];
+            // Calcular sumas del 1 al 200
+            for ($i = 1; $i <= 200; $i++) {
+                if ($i % 2 == 0) {
+                    // Es par
+                    $sumaPares += $i;
+                    $cantidadPares++;
+                } else {
+                    // Es impar
+                    $sumaImpares += $i;
+                    $cantidadImpares++;
                 }
             }
 
-            // Crear instancia y calcular
-            $calculadora = new NumberCalculator(1, 200);
-            $estadisticas = $calculadora->calcularEstadisticas();
-            
-            // Obtener ejemplos de números
-            $ejemplosPares = NumberCalculator::obtenerPrimerosNumeros(10, true, 1, 200);
-            $ejemplosImpares = NumberCalculator::obtenerPrimerosNumeros(10, false, 1, 200);
-            
-            // Calcular altura de barras proporcional
-            $maxSuma = max($estadisticas['pares']['suma'], $estadisticas['impares']['suma']);
-            $alturaPares = ($estadisticas['pares']['suma'] / $maxSuma) * 100;
-            $alturaImpares = ($estadisticas['impares']['suma'] / $maxSuma) * 100;
+            // Calcular total
+            $sumaTotal = $sumaPares + $sumaImpares;
+
+            // Calcular altura proporcional para las barras
+            $maxSuma = max($sumaPares, $sumaImpares);
+            $alturaPares = ($sumaPares / $maxSuma) * 100;
+            $alturaImpares = ($sumaImpares / $maxSuma) * 100;
+
+            // Calcular promedios
+            $promedioPares = $sumaPares / $cantidadPares;
+            $promedioImpares = $sumaImpares / $cantidadImpares;
             ?>
 
             <!-- Tarjetas de resultados -->
             <div class="results-grid">
                 <div class="result-card card-pares">
-                    <h2>📘 Números Pares</h2>
-                    <div class="number"><?php echo number_format($estadisticas['pares']['suma']); ?></div>
-                    <div class="count"><?php echo $estadisticas['pares']['cantidad']; ?> números</div>
+                    <h2>Números Pares</h2>
+                    <div class="number"><?php echo number_format($sumaPares); ?></div>
+                    <div class="count"><?php echo $cantidadPares; ?> números</div>
                 </div>
 
                 <div class="result-card card-impares">
-                    <h2>📕 Números Impares</h2>
-                    <div class="number"><?php echo number_format($estadisticas['impares']['suma']); ?></div>
-                    <div class="count"><?php echo $estadisticas['impares']['cantidad']; ?> números</div>
+                    <h2>Números Impares</h2>
+                    <div class="number"><?php echo number_format($sumaImpares); ?></div>
+                    <div class="count"><?php echo $cantidadImpares; ?> números</div>
                 </div>
 
                 <div class="result-card card-total">
-                    <h2>📊 Suma Total</h2>
-                    <div class="number"><?php echo number_format($estadisticas['total']); ?></div>
+                    <h2>Suma Total</h2>
+                    <div class="number"><?php echo number_format($sumaTotal); ?></div>
                     <div class="count">200 números</div>
                 </div>
             </div>
 
             <!-- Gráfica de comparación -->
             <div class="chart-section">
-                <h3 class="chart-title">Comparación Visual de Sumas</h3>
+                <h3 class="chart-title">Comparación Visual</h3>
                 <div class="comparison-chart">
                     <div class="bar-container">
                         <div class="bar bar-pares" style="height: <?php echo $alturaPares; ?>%;">
-                            <span class="bar-value"><?php echo number_format($estadisticas['pares']['suma']); ?></span>
+                            <span class="bar-value"><?php echo number_format($sumaPares); ?></span>
                         </div>
                         <div class="bar-label">Pares</div>
                     </div>
 
                     <div class="bar-container">
                         <div class="bar bar-impares" style="height: <?php echo $alturaImpares; ?>%;">
-                            <span class="bar-value"><?php echo number_format($estadisticas['impares']['suma']); ?></span>
+                            <span class="bar-value"><?php echo number_format($sumaImpares); ?></span>
                         </div>
                         <div class="bar-label">Impares</div>
-                    </div>
-                </div>
-
-                <!-- Barra de porcentaje -->
-                <div class="percentage-bar">
-                    <div class="percentage-fill-pares" style="width: <?php echo $estadisticas['porcentajePares']; ?>%;">
-                        <?php echo round($estadisticas['porcentajePares'], 1); ?>%
-                    </div>
-                    <div class="percentage-fill-impares" style="width: <?php echo $estadisticas['porcentajeImpares']; ?>%;">
-                        <?php echo round($estadisticas['porcentajeImpares'], 1); ?>%
                     </div>
                 </div>
             </div>
@@ -429,78 +347,29 @@
             <!-- Detalles por categoría -->
             <div class="details-section">
                 <div class="detail-card pares">
-                    <h3>🔵 Detalles de Números Pares</h3>
+                    <h3>Detalles de Números Pares</h3>
                     <div class="detail-info">
-                        <p><strong>Cantidad:</strong> <?php echo $estadisticas['pares']['cantidad']; ?> números</p>
-                        <p><strong>Suma total:</strong> <?php echo number_format($estadisticas['pares']['suma']); ?></p>
-                        <p><strong>Promedio:</strong> <?php echo number_format($estadisticas['pares']['suma'] / $estadisticas['pares']['cantidad'], 2); ?></p>
-                        <p><strong>Primeros 10:</strong></p>
-                        <div class="formula-box">
-                            <?php 
-                            // Usando foreach para mostrar ejemplos
-                            $primerosParesStr = '';
-                            foreach ($ejemplosPares as $numero) {
-                                $primerosParesStr .= $numero . ', ';
-                            }
-                            echo rtrim($primerosParesStr, ', ') . '...';
-                            ?>
-                        </div>
+                        <p><strong>Cantidad:</strong> <?php echo $cantidadPares; ?> números</p>
+                        <p><strong>Suma total:</strong> <?php echo number_format($sumaPares); ?></p>
+                        <p><strong>Promedio:</strong> <?php echo number_format($promedioPares, 2); ?></p>
+                        <p><strong>Rango:</strong> 2, 4, 6, 8, ... 200</p>
+                        <p><strong>Fórmula:</strong> n % 2 == 0</p>
                     </div>
                 </div>
 
                 <div class="detail-card impares">
-                    <h3>🔴 Detalles de Números Impares</h3>
+                    <h3>Detalles de Números Impares</h3>
                     <div class="detail-info">
-                        <p><strong>Cantidad:</strong> <?php echo $estadisticas['impares']['cantidad']; ?> números</p>
-                        <p><strong>Suma total:</strong> <?php echo number_format($estadisticas['impares']['suma']); ?></p>
-                        <p><strong>Promedio:</strong> <?php echo number_format($estadisticas['impares']['suma'] / $estadisticas['impares']['cantidad'], 2); ?></p>
-                        <p><strong>Primeros 10:</strong></p>
-                        <div class="formula-box">
-                            <?php 
-                            // Usando implode para unir array
-                            echo implode(', ', $ejemplosImpares) . '...';
-                            ?>
-                        </div>
+                        <p><strong>Cantidad:</strong> <?php echo $cantidadImpares; ?> números</p>
+                        <p><strong>Suma total:</strong> <?php echo number_format($sumaImpares); ?></p>
+                        <p><strong>Promedio:</strong> <?php echo number_format($promedioImpares, 2); ?></p>
+                        <p><strong>Rango:</strong> 1, 3, 5, 7, ... 199</p>
+                        <p><strong>Fórmula:</strong> n % 2 != 0</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Análisis adicional -->
-            <div class="chart-section" style="margin-top: 30px;">
-                <h3 class="chart-title">📐 Análisis Matemático</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                    <?php
-                    // Array con análisis usando switch
-                    $analisis = [
-                        'diferencia' => abs($estadisticas['pares']['suma'] - $estadisticas['impares']['suma']),
-                        'razon' => $estadisticas['pares']['suma'] / $estadisticas['impares']['suma']
-                    ];
-                    
-                    foreach ($analisis as $tipo => $valor):
-                        $descripcion = '';
-                        
-                        // Usando switch-case para descripciones
-                        switch ($tipo) {
-                            case 'diferencia':
-                                $descripcion = 'Diferencia entre sumas';
-                                break;
-                            case 'razon':
-                                $descripcion = 'Razón Pares/Impares';
-                                $valor = round($valor, 4);
-                                break;
-                            default:
-                                $descripcion = 'Otro análisis';
-                        }
-                    ?>
-                        <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
-                            <p style="color: #666; margin-bottom: 10px;"><?php echo $descripcion; ?></p>
-                            <p style="font-size: 2em; font-weight: bold; color: #667eea;">
-                                <?php echo number_format($valor, 2); ?>
-                            </p>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
+            <button class="back-btn" onclick="window.history.back()">← Volver al Menú</button>
         </div>
     </div>
 </body>
