@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Proyecto #2 - Menú Principal</title>
+    <title>Mini Proyecto #1 - Menú Principal</title>
     <style>
         * {
             margin: 0;
@@ -38,7 +38,7 @@
 
         .container {
             max-width: 1400px;
-            margin: 0 auto;
+            margin: auto;
             position: relative;
             z-index: 1;
         }
@@ -47,7 +47,6 @@
         header {
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.95) 0%, rgba(5, 150, 105, 0.95) 100%);
             padding: 50px 40px;
-            border-radius: 25px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
             margin-bottom: 50px;
             text-align: center;
@@ -222,35 +221,6 @@
             color: #10b981;
         }
 
-        /* Footer mejorado */
-        footer {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 253, 244, 0.95) 100%);
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-
-        footer p {
-            color: #4b5563;
-            margin: 8px 0;
-            font-size: 1em;
-        }
-
-        footer .university {
-            font-weight: bold;
-            color: #10b981;
-            font-size: 1.2em;
-            margin-bottom: 12px;
-        }
-
-        footer .students {
-            color: #059669;
-            font-weight: 600;
-            margin-top: 18px;
-            font-size: 1.05em;
-        }
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -290,13 +260,13 @@
 <body>
     <div class="container">
         <header>
-            <h1>🎯 Mini Proyecto #2</h1>
-            <p>Sentencias de Control y Clases en PHP</p>
+            <h1>Mini Proyecto #1</h1>
+            <p>Sentencias de control y clases en PHP</p>
         </header>
 
         <div class="problems-container">
             <a href="problema1.php" class="problem-box">
-                <span class="problem-badge">PHP</span>
+ 
                 <div class="problem-icon">
                     <div class="problem-number">1</div>
                 </div>
@@ -305,7 +275,7 @@
             </a>
 
             <a href="problema2.php" class="problem-box">
-                <span class="problem-badge">PHP</span>
+ 
                 <div class="problem-icon">
                     <div class="problem-number">2</div>
                 </div>
@@ -314,7 +284,7 @@
             </a>
 
             <a href="problema3.php" class="problem-box">
-                <span class="problem-badge">PHP</span>
+ 
                 <div class="problem-icon">
                     <div class="problem-number">3</div>
                 </div>
@@ -323,7 +293,7 @@
             </a>
 
             <a href="problema4.php" class="problem-box">
-                <span class="problem-badge">PHP</span>
+ 
                 <div class="problem-icon">
                     <div class="problem-number">4</div>
                 </div>
@@ -332,7 +302,7 @@
             </a>
 
             <a href="problema5.php" class="problem-box">
-                <span class="problem-badge">PHP</span>
+ 
                 <div class="problem-icon">
                     <div class="problem-number">5</div>
                 </div>
@@ -341,7 +311,7 @@
             </a>
 
             <a href="problema6.php" class="problem-box">
-                <span class="problem-badge">PHP</span>
+ 
                 <div class="problem-icon">
                     <div class="problem-number">6</div>
                 </div>
@@ -350,7 +320,7 @@
             </a>
 
             <a href="problema7.php" class="problem-box">
-                <span class="problem-badge">PHP</span>
+ 
                 <div class="problem-icon">
                     <div class="problem-number">7</div>
                 </div>
@@ -359,7 +329,7 @@
             </a>
 
             <a href="problema8.php" class="problem-box">
-                <span class="problem-badge">PHP</span>
+ 
                 <div class="problem-icon">
                     <div class="problem-number">8</div>
                 </div>
@@ -368,7 +338,7 @@
             </a>
 
             <a href="problema9.php" class="problem-box">
-                <span class="problem-badge">PHP</span>
+ 
                 <div class="problem-icon">
                     <div class="problem-number">9</div>
                 </div>
@@ -377,7 +347,7 @@
             </a>
 
             <a href="problema10.php" class="problem-box">
-                <span class="problem-badge">PHP</span>
+ 
                 <div class="problem-icon">
                     <div class="problem-number">10</div>
                 </div>
@@ -385,13 +355,7 @@
                 <div class="problem-description">POO y clases</div>
             </a>
         </div>
-
-        <footer>
-            <p class="university">Universidad Tecnológica de Panamá</p>
-            <p>Desarrollo de Software VII</p>
-            <p>Mini Proyecto #2 - 2025</p>
-            <p class="students">Grupo de Estudiantes</p>
-        </footer>
+        <?php require_once 'footer.php'; ?>
     </div>
 </body>
 </html>
