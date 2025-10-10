@@ -188,8 +188,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores[] = "El límite debe ser un número válido.";
     } elseif (!Validador::esEnteroPositivo($limiteInput)) {
         $errores[] = "El límite debe ser un número entero positivo.";
-    } elseif (!Validador::validarRango($limiteInput, 1, 1000000)) {
-        $errores[] = "El límite debe estar entre 1 y 1,000,000.";
+    } elseif (!Validador::validarRango($limiteInput, 1, 1000)) {
+        $errores[] = "El límite debe estar entre 1 y 1,000.";
     } else {
         $limite = intval($limiteInput);
         $resultados = CalculadoraSuma::calcularTodosLosMetodos($limite);
@@ -231,7 +231,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <form method="POST" action="">
                         <div class="form-group">
                             <label for="limite">
-                                Límite Superior (1 - 1,000,000)
+                                Límite Superior (1 - 1,000)
                             </label>
                             <div class="p2-input-contenedor">
                                 <input 
@@ -239,7 +239,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     id="limite" 
                                     name="limite" 
                                     min="1"
-                                    max="1000000"
+                                    max="1000"
                                     value="<?php echo isset($_POST['limite']) ? htmlspecialchars($_POST['limite']) : '1000'; ?>"
                                     placeholder="Ejemplo: 1000"
                                     required
