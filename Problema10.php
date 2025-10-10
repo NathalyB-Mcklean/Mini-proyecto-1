@@ -26,7 +26,7 @@
             <div class="p10-contenido">
                 <?php include 'nav-problemas.php'; ?>
                 <div class="p10-seccion-formulario">
-                    m<h3>Ingresar ventas del Mes</h3>
+                    <h3>Ingresar ventas del Mes</h3>
                     <div class="p10-info-box">
                         <strong>Instrucciones:</strong> Ingrese el valor total de ventas para cada producto por vendedor durante el mes.
                         Deje en 0 si no hubo ventas de ese producto.
