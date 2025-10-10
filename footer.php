@@ -17,24 +17,36 @@ $anio = date('Y');
 $fechaActual = "$dia de $mes de $anio";
 ?>
 
-<footer style="text-align: center; color: white;">
-    <p style="font-weight: bold; font-size: 1.2em; margin-bottom: 12px;">Universidad Tecnológica de Panamá</p>
-    <p><strong>Facultad de Ingeniería en Sistemas Computacionales</strong></p>
-    <p>Campus Victor Levis Sasso</p>
-    <p style="margin-top: 15px;"><strong>Curso:</strong> Ingeniería Web</p>
-    <p><strong>Instructor:</strong> Ing. Irina Fong</p>
-    
-    <div style="font-weight: 600; margin-top: 18px; font-size: 1.05em;">
-        <p style="margin-top: 15px;"><strong>Integrantes del Grupo:</strong></p>
-        <p>Estudiante #1: Abrego, Abdiel - abdiel.abrego1@utp.ac.pa</p>
-        <p>Estudiante #2: Bonilla, Nathaly - nathaly.bonilla1@utp.ac.pa</p>
+<footer>
+    <div class="footer-container">
+        <!-- Columna Izquierda: Información de la Universidad -->
+        <div class="footer-left">
+            <p style="font-weight: bold; margin-bottom: 8px;">Universidad Tecnológica de Panamá</p>
+            <p>Facultad de Ingeniería en Sistemas Computacionales</p>
+            <p>Campus Victor Levis Sasso</p>
+            <p style="margin-top: 10px;">Curso: Ingeniería Web</p>
+            <p>Instructor: Ing. Irina Fong</p>
+        </div>
+        
+        <!-- Línea divisoria vertical -->
+        <div class="footer-divider"></div>
+        
+        <!-- Columna Derecha: Integrantes del Grupo -->
+        <div class="footer-right">
+            <p style="font-weight: bold; margin-bottom: 8px;">Integrantes</p>
+            <p>Estudiante #1: Abrego, Abdiel - abdiel.abrego1@utp.ac.pa</p>
+            <p>Estudiante #2: Bonilla, Nathaly - nathaly.bonilla1@utp.ac.pa</p><br>
+            <p style="font-weight: bold; margin-bottom: 8px;">Grupo: 1SF132</p>
+        </div>
     </div>
     
-    <p style="margin-top: 15px; font-size: 0.9em;">
-        Fecha de ejecución: <?php echo htmlspecialchars($fechaActual); ?>
-    </p>
-    
-    <p style="margin-top: 10px; font-size: 0.85em;">
-        Mini Proyecto #1 - Sentencias de Control y Clases | © <?php echo date('Y'); ?>
-    </p>
+    <!-- Información inferior centrada -->
+    <div class="footer-bottom">
+        <p style="margin-top: 15px;">
+            Fecha de ejecución: <?php echo htmlspecialchars($fechaActual); ?>
+        </p>
+        <p style="margin-top: 5px;">
+            Mini Proyecto #1 - Sentencias de control y clases | © <?php echo date('Y'); ?>
+        </p>
+    </div>
 </footer>
