@@ -26,7 +26,7 @@
             <div class="p10-contenido">
                 <?php include 'nav-problemas.php'; ?>
                 <div class="p10-seccion-formulario">
-                    <h3>💼 Ingresar Ventas del Mes</h3>
+                    m<h3>Ingresar ventas del Mes</h3>
                     <div class="p10-info-box">
                         <strong>Instrucciones:</strong> Ingrese el valor total de ventas para cada producto por vendedor durante el mes.
                         Deje en 0 si no hubo ventas de ese producto.
@@ -37,7 +37,7 @@
                         // Generar formulario para 4 vendedores
                         for ($v = 1; $v <= 4; $v++) {
                             echo '<div class="p10-vendedor-section">';
-                            echo '<div class="p10-vendedor-header">👤 Vendedor ' . $v . '</div>';
+                            echo '<div class="p10-vendedor-header"> Vendedor ' . $v . '</div>';
                             echo '<div class="p10-producto-grid">';
                             
                             for ($p = 1; $p <= 5; $p++) {
